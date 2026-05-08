@@ -577,7 +577,7 @@ export default function App() {
                       Website: https://yourportfolio.com
                       Address: Kamembe/Rusizi, Rwanda
                       `}
-                    size={250}
+                    size={200}
                     level="H"
                     includeMargin={true}
                     imageSettings={{
