@@ -6,6 +6,8 @@ import "./App.css";
 import profile from "./profile.jpg";
 import { QRCodeCanvas } from "qrcode.react";
 import logo from "./logo.png";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
 
 export default function App() {
   const form = useRef();
@@ -577,7 +579,7 @@ export default function App() {
                       Website: https://yourportfolio.com
                       Address: Kamembe/Rusizi, Rwanda
                       `}
-                    size={200}
+                    size={250}
                     level="H"
                     includeMargin={true}
                     imageSettings={{
@@ -624,19 +626,44 @@ export default function App() {
               </ul>
             </div>
 
-            {/* Column 4: Let's Connect */}
-            <div className="col-lg-3 col-md-6 mb-4 text-start">
-              <h5 className="fw-bold mb-4 text-white">Let's Connect</h5>
-              <div className="d-flex flex-wrap gap-2 mb-4">
-                {/* Social Icons */}
-                <div className="social-icon-box"><i className="bi bi-whatsapp"></i></div>
-                <div className="social-icon-box"><i className="bi bi-instagram"></i></div>
-                <div className="social-icon-box"><i className="bi bi-github"></i></div>
-                <div className="social-icon-box"><i className="bi bi-linkedin"></i></div>
+            <div className="connect-section">
+
+              <h5 className="fw-bold mb-4 text-white">
+                Let's Connect
+              </h5>
+
+              <div className="social-grid">
+
+                <a href="https://wa.me/250793055282" className="social-box whatsapp">
+                  <i className="bi bi-whatsapp"></i>
+                </a>
+
+                <a href="https://www.instagram.com/m.w_ilson" className="social-box instagram">
+                  <i className="bi bi-instagram"></i>
+                </a>
+
+                <a href="https://github.com/jea124" className="social-box github">
+                  <i className="bi bi-github"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/maniragaba-jeanwilson-212515362/" className="social-box linkedin">
+                  <i className="bi bi-linkedin"></i>
+                </a>
+
+                <a href="https://mail.google.com/mail/u/0/#inbox" className="social-box email">
+                  <i className="bi bi-envelope"></i>
+                </a>
+
+                <a href="tel:+250793055282" className="social-box phone">
+                  <i className="bi bi-telephone"></i>
+                </a>
+
               </div>
-              <button className="btn btn-primary w-100 py-2 fw-bold d-flex align-items-center justify-content-center">
-                <i className="bi bi-send-fill me-2"></i> Start a Project
+
+              <button className="project-btn mt-4">
+                 Start a Project
               </button>
+
             </div>
           </div>
 

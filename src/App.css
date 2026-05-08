@@ -714,13 +714,70 @@ textarea::placeholder{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40vh;
+  height: 50vh;
   background: #f4f4f4;
 }
 
 .qr-card {
-  background: black;
-  padding: 20px;
+  background: white;
+  padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/* SECTION WRAPPER */
+.connect-section {
+  text-align: left;
+}
+
+/* GRID */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+/* ICON BOX */
+.social-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* HOVER EFFECT */
+.social-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* COLORS LIKE YOUR IMAGE */
+.whatsapp { background: #25D366; }
+.instagram { background: #E1306C; }
+.github { background: #333; }
+.linkedin { background: #0A66C2; }
+.email { background: #FF4B4B; }
+.phone { background: #4A90E2; }
+
+/* BUTTON */
+.project-btn {
+  width: 30%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #4A00E0, #8E2DE2);
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.project-btn:hover {
+  transform: scale(1.03);
 }
