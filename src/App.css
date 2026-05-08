@@ -710,3 +710,17 @@ textarea::placeholder{
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
 }
+.qr-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  background: #f4f4f4;
+}
+
+.qr-card {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
