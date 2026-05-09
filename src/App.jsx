@@ -7,9 +7,77 @@ import profile from "./profile.jpg";
 import { QRCodeCanvas } from "qrcode.react";
 import logo from "./logo.png";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { useState } from "react";
+
+const projects = [
+  {
+    category: "full-stack",
+    badge: "Full Stack",
+    title: "Stock Management",
+    description: "Complete e-commerce platform with payment integration and customer analytics.",
+    list: ["Payment System", "Admin Dashboard", "Real-time Inventory"],
+    tech: ["React", "Node.js", "MySQL"],
+  },
+  {
+    category: "web-app",
+    badge: "Web App",
+    title: "Learning In The Home",
+    description: "Advanced booking and scheduling system with real-time tracking features.",
+    list: ["Real-time Tracking", "Driver Scheduling", "Payment System"],
+    tech: ["React", "Express", "Socket.io"],
+  },
+  {
+    category: "full-stack",
+    badge: "Business Solution",
+    title: "Wilson System",
+    description: "Tenant and property management system built for companies.",
+    list: ["Lease Management", "Payment Tracking", "Maintenance Requests"],
+    tech: ["PHP", "JavaScript", "Bootstrap"],
+  },
+  {
+    category: "graphic",
+    badge: "Graphic Design",
+    title: "Flyer Design Services",
+    description: "Personal flyers and advertising designs for any occasion or business.",
+    list: ["Custom Flyers with QR Code", "Invitation Design", "Banks, Restaurants & Organizations"],
+    tech: ["Canva", "Photoshop", "Photo Tools", "Photo Editing Tools"],
+  },
+  {
+    category: "technician",
+    badge: "Computer Technician",
+    title: "Computer Technician Services",
+    description: "Professional technical support and hardware maintenance for your PC.",
+    list: ["Fix Slow PC Performance", "Hard Disk Replacement", "Operating System Installation"],
+    tech: [],
+  },
+  {
+    category: "rra",
+    badge: "RRA Taxes",
+    title: "RRA Tax Problem Solutions",
+    description: "Expert help resolving your RRA tax issues and EBM product management.",
+    list: ["Enter Products into EBM", "Stock Product Management", "Tax Declaration Assistance"],
+    tech: [],
+  },
+];
+
+const filters = [
+  { label: "All Projects", value: "all" },
+  { label: "Full Stack", value: "full-stack" },
+  { label: "Web App", value: "web-app" },
+  { label: "Graphic Designer", value: "graphic" },
+  { label: "Computer Technician", value: "technician" },
+  { label: "Handling Problems Of Your RRA Taxes", value: "rra" },
+];
 
 
 export default function App() {
+  const [active, setActive] = useState("all");
+
+  const filtered =
+    active === "all"
+      ? projects
+      : projects.filter((p) => p.category === active);
+
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -117,11 +185,11 @@ export default function App() {
         />
 
         <h1 className="text-white mt-3">
-          Hi, I'm <span className="text-primary">Wilson</span>
+          Hi, My Name is <br /><span className="text-primary">Maniragaba Jean Wilson</span>
         </h1>
 
         <p className="text-light">
-          Full Stack Developer
+          Full Stack Developer  |  Graphic Designer  |  Computer Technician
         </p>
 
         <div className="mt-3">
@@ -130,7 +198,7 @@ export default function App() {
           </a>
 
           <a href="https://wa.me/250793055282" className="btn btn-outline-light">
-            WhatsApp
+            WhatsApp/ +250 793 055 282
           </a>
         </div>
       </section>
@@ -148,15 +216,15 @@ export default function App() {
             </button>
 
             <h1 className="about-title mt-4">
-              Transforming Business Requirements
+              Transforming Your Wants Project, Designing And your Needs 
               <br />
-              into Technical Solutions
+              into Wilson Solutions
             </h1>
 
             <p className="about-text mx-auto mt-4">
               I am a results-driven Software Developer with proven experience
               in designing, developing, and delivering production-ready web
-              applications. I specialize in building scalable, secure, and
+              applications. I specialize in building scalable, secure, computer Maintenance and
               user-centered systems from concept to deployment.
             </p>
 
@@ -206,6 +274,18 @@ export default function App() {
                       applications including e-commerce and
                       management systems.
                     </p>
+
+                    <h5>Graphic Designer And Computer Technician</h5>
+
+                    <span>
+                      Various Projects • 2025 - 2026
+                    </span>
+
+                    <p>
+                      Created visually appealing designs and provided
+                      technical support for clients, enhancing their
+                      digital presence and system performance.
+                    </p>
                   </div>
 
                 </div>
@@ -234,7 +314,7 @@ export default function App() {
                   </li>
 
                   <li>
-                    ✅ <strong>API Development:</strong> RESTful APIs with proper documentation
+                    ✅ <strong>Computer Technician:</strong> Troubleshooting and maintaining computer systems for optimal performance
                   </li>
 
                   <li>
@@ -242,7 +322,7 @@ export default function App() {
                   </li>
 
                   <li>
-                    ✅ <strong>Security:</strong> Authentication, authorization, and data protection
+                    ✅ <strong>Graphic Designer:</strong> Creating visually appealing designs for Flyer and print media
                   </li>
 
                   <li>
@@ -278,9 +358,11 @@ export default function App() {
           <div className="row g-5 w-75 mx-auto">
             {[
               { name: "React & Node.js", level: 90, color: "#ffffff" },
-              { name: "JavaScript (ES6+)", level: 95, color: "#ffffff" },
+              { name: "JavaScript (ES6+)", level: 90, color: "#ffffff" },
               { name: "PHP & MySQL", level: 85, color: "#ffffff" },
-              { name: "HTML5 & CSS3", level: 98, color: "#ffffff" },
+              { name: "Blockchain ", level: 80, color: "#ffffff" },
+              { name: "Graphic Designer & Computer Techician ", level: 95, color: "#ffffff" },
+              { name: "HTML & CSS", level: 98, color: "#ffffff" },
               { name: "Python & ML", level: 75, color: "#ffffff" },
               { name: "System Design", level: 80, color: "#ffffff" },
             ].map((skill, index) => (
@@ -320,186 +402,70 @@ export default function App() {
 
       {/* PROJECTS */}
       <section id="projects" className="projects-section">
+      <div className="container">
 
-        <div className="container">
-
-          {/* TOP */}
-          <div className="text-center mb-5">
-
-            <button className="project-top-btn">
-              Featured Projects
-            </button>
-
-            <h1 className="projects-title mt-4">
-              Production-Ready Solutions
-            </h1>
-
-            <p className="projects-subtitle">
-              Real-world applications I've designed,
-              developed, and deployed for clients
-            </p>
-
-          </div>
-
-          {/* FILTER BUTTONS */}
-          <div className="d-flex justify-content-center flex-wrap gap-3 mb-5">
-
-            <button className="filter-btn active-filter">
-              All Projects
-            </button>
-
-            <button className="filter-btn">
-              Full Stack
-            </button>
-
-            <button className="filter-btn">
-              Web App
-            </button>
-
-            <button className="filter-btn">
-              Business Solution
-            </button>
-
-            <button className="filter-btn">
-              Marketplace
-            </button>
-
-          </div>
-
-          {/* PROJECT CARDS */}
-          <div className="row g-4">
-
-            {/* CARD 1 */}
-            <div className="col-lg-4 col-md-6">
-
-              <div className="project-card">
-
-                <div className="p-4">
-
-                  <span className="project-badge">
-                    Full Stack
-                  </span>
-
-                  <h4 className="project-name mt-3">
-                    Stock Management
-                  </h4>
-
-                  <p className="project-text">
-                    Complete e-commerce platform with
-                    payment integration and customer analytics.
-                  </p>
-
-                  <ul className="project-list">
-                    <li>✅ Payment System</li>
-                    <li>✅ Admin Dashboard</li>
-                    <li>✅ Real-time Inventory</li>
-                  </ul>
-
-                  <div className="tech-stack">
-                    <span>React</span>
-                    <span>Node.js</span>
-                    <span>MySQL</span>
-                  </div>
-
-                  <button className="view-btn">
-                    View Details ↗
-                  </button>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            {/* CARD 2 */}
-            <div className="col-lg-4 col-md-6">
-
-              <div className="project-card">
-
-                <div className="p-4">
-
-                  <span className="project-badge">
-                    Web App
-                  </span>
-
-                  <h4 className="project-name mt-3">
-                    Learning In The Home
-                  </h4>
-
-                  <p className="project-text">
-                    Advanced booking and scheduling
-                    system with tracking features.
-                  </p>
-
-                  <ul className="project-list">
-                    <li>✅ Real-time Tracking</li>
-                    <li>✅ Driver Scheduling</li>
-                    <li>✅ Payment System</li>
-                  </ul>
-
-                  <div className="tech-stack">
-                    <span>React</span>
-                    <span>Express</span>
-                    <span>Socket.io</span>
-                  </div>
-
-                  <button className="view-btn">
-                    View Details ↗
-                  </button>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            {/* CARD 3 */}
-            <div className="col-lg-4 col-md-6">
-
-              <div className="project-card">
-
-                <div className="p-4">
-
-                  <span className="project-badge">
-                    Business Solution
-                  </span>
-
-                  <h4 className="project-name mt-3">
-                    wilson System
-                  </h4>
-
-                  <p className="project-text">
-                    Tenant and property management
-                    system for companies.
-                  </p>
-
-                  <ul className="project-list">
-                    <li>✅ Lease Management</li>
-                    <li>✅ Payment Tracking</li>
-                    <li>✅ Maintenance Requests</li>
-                  </ul>
-
-                  <div className="tech-stack">
-                    <span>PHP</span>
-                    <span>JavaScript</span>
-                    <span>Bootstrap</span>
-                  </div>
-
-                  <button className="view-btn">
-                    View Details ↗
-                  </button>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
+        {/* TOP */}
+        <div className="text-center mb-5">
+          <button className="project-top-btn">Featured Projects</button>
+          <h1 className="projects-title mt-4">
+            Wilson Production-Ready Solutions
+          </h1>
+          <p className="projects-subtitle">
+            Real-world applications I've designed, developed, and deployed for
+            clients | Designing Flyer And Computer Technician
+          </p>
         </div>
 
-      </section>
+        {/* FILTER BUTTONS */}
+        <div className="d-flex justify-content-center flex-wrap gap-3 mb-5">
+          {filters.map((f) => (
+            <button
+              key={f.value}
+              className={`filter-btn ${active === f.value ? "active-filter" : ""}`}
+              onClick={() => setActive(f.value)}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+
+        {/* PROJECT CARDS */}
+        <div className="row g-4">
+          {filtered.map((project, index) => (
+            <div className="col-lg-4 col-md-6" key={index}>
+              <div className="project-card">
+                <div className="p-4">
+
+                  <span className="project-badge">{project.badge}</span>
+
+                  <h4 className="project-name mt-3">{project.title}</h4>
+
+                  <p className="project-text">{project.description}</p>
+
+                  <ul className="project-list">
+                    {project.list.map((item, i) => (
+                      <li key={i}>✅ {item}</li>
+                    ))}
+                  </ul>
+
+                  {project.tech.length > 0 && (
+                    <div className="tech-stack">
+                      {project.tech.map((t, i) => (
+                        <span key={i}>{t}</span>
+                      ))}
+                    </div>
+                  )}
+
+                  <button className="view-btn">View Details ↗</button>
+
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
       {/* CONTACT */}
       <section id="contact" className="section text-center">
         <h2 className="text-primary">Contact Me</h2>
@@ -549,7 +515,7 @@ export default function App() {
 
             {/* Column 1: Brand & Contact Card */}
             <div className="col-lg-4 col-md-6 mb-4 text-start">
-              <h3 className="text-primary fw-bold mb-3">Jean Wilson</h3>
+              <h3 className="text-primary fw-bold mb-3">Maniragaba Jean Wilson</h3>
               <p className="text-white small mb-4">
                 Crafting digital experiences that solve real-world problems with scalable, secure, and user-centered solutions.
               </p>
@@ -566,17 +532,18 @@ export default function App() {
                   <div className="icon-bg-green rounded p-2 me-3">
                     <i className="bi bi-geo-alt text-white"></i>
                   </div>
-                  <span className="small text-light">Kigali, Rwanda </span>
+                  <span className="small text-light">Kigali/Rusizi, Rwanda </span>
+                  <span className="small text-light">+250793055282</span>
                 </div>
               </div>
               <div className="qr-container">
                 <div className="qr-card">
                   <QRCodeCanvas
                     value={`
-                      Name: Jean Wilson
+                      Name: Maniragaba Jean Wilson
                       Phone: +250793055282
                       Email: maniragabajeanwilson@gmail.com
-                      Website: https://yourportfolio.com
+                      Website: https://maniragabajeanwilson.vercel.app
                       Address: Kamembe/Rusizi, Rwanda
                       `}
                     size={250}
@@ -672,10 +639,10 @@ export default function App() {
           {/* Bottom Bar */}
           <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4">
             <p className="small text-white mb-3 mb-md-0">
-              This Website Designed by Jean Wilson
+              This Website Designed by Maniragaba Jean Wilson
             </p>
             <div className="d-flex flex-wrap gap-2">
-              {['React', 'Node.js', 'PHP', 'MySQL', 'JavaScript', 'Bootstrap', 'Express', 'MongoDB'].map((tech) => (
+              {['React', 'Node.js', 'PHP', 'MySQL', 'JavaScript', 'Bootstrap', 'Express', 'MongoDB','Graphic Designer ' ].map((tech) => (
                 <span key={tech} className="tech-badge">
                   {tech}
                 </span>
